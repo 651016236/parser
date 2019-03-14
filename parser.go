@@ -11068,14 +11068,16 @@ yynewstate:
 		}
 	case 1032:
 		{
-			parser.yyVAL.statement = &ast.ChangePumpStmt{
+			parser.yyVAL.statement = &ast.ChangeStmt{
+				NodeType:  "PUMP",
 				State:     yyS[yypt-3].ident,
 				IpAndPort: yyS[yypt-0].ident,
 			}
 		}
 	case 1033:
 		{
-			parser.yyVAL.statement = &ast.ChangeDrainerStmt{
+			parser.yyVAL.statement = &ast.ChangeStmt{
+				NodeType:  "DRAINER",
 				State:     yyS[yypt-3].ident,
 				IpAndPort: yyS[yypt-0].ident,
 			}

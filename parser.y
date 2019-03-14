@@ -5521,14 +5521,16 @@ DefaultTrueDistinctOpt
 ChangeStmt:
 	"CHANGE" "PUMP" "TO" "PUMP_STATE" eq stringLit forKwd "NODEID" stringLit
 	{
-		$$ = &ast.ChangePumpStmt{
+		$$ = &ast.ChangeStmt{
+			NodeType: "PUMP",
 			State: $6,
 			IpAndPort: $9,
 		}
 	}
 |	"CHANGE" "DRAINER" "TO" "DRAINER_STATE" eq stringLit forKwd "NODEID" stringLit
 	{
-		$$ = &ast.ChangeDrainerStmt{
+		$$ = &ast.ChangeStmt{
+			NodeType: "DRAINER",
 			State: $6,
 			IpAndPort: $9,
 		}
