@@ -215,10 +215,16 @@ func (e *Error) Location() (file string, line int) {
 
 // Error implements error interface.
 func (e *Error) Error() string {
+	if e == nil {
+		return "<nil>"
+	}
 	return fmt.Sprintf("[%s:%d]%s", e.class, e.code, e.getMsg())
 }
 
 func (e *Error) getMsg() string {
+	if e == nil {
+		return "<nil>"
+	}
 	if len(e.args) > 0 {
 		return fmt.Sprintf(e.message, e.args...)
 	}
