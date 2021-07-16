@@ -32,8 +32,8 @@ const (
 type FieldType struct {
 	Tp      byte
 	Flag    uint
-	Flen    int64
-	Decimal int64
+	Flen    int
+	Decimal int
 	Charset string
 	Collate string
 	// Elems is the element list for enum and set type.
@@ -304,7 +304,7 @@ func (ft *FieldType) FormatAsCastType(w io.Writer) {
 const VarStorageLen = -1
 
 // StorageLength is the length of stored value for the type.
-func (ft *FieldType) StorageLength() int64 {
+func (ft *FieldType) StorageLength() int {
 	switch ft.Tp {
 	case mysql.TypeTiny, mysql.TypeShort, mysql.TypeInt24, mysql.TypeLong,
 		mysql.TypeLonglong, mysql.TypeDouble, mysql.TypeFloat, mysql.TypeYear, mysql.TypeDuration,
