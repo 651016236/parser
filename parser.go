@@ -42,8 +42,8 @@ import (
 )
 
 type yySymType struct {
-	yys       int
-	offset    int // offset
+	yys       int64
+	offset    int64 // offset
 	item      interface{}
 	ident     string
 	expr      ast.ExprNode
@@ -51,7 +51,7 @@ type yySymType struct {
 }
 
 type yyXError struct {
-	state, xsym int
+	state, xsym int64
 }
 
 const (
