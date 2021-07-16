@@ -95,13 +95,13 @@ func TypeToStr(tp byte, cs string) (r string) {
 }
 
 var (
-	dig2bytes = [10]int{0, 1, 1, 2, 2, 3, 3, 4, 4, 4}
+	dig2bytes = [10]int64{0, 1, 1, 2, 2, 3, 3, 4, 4, 4}
 )
 
 // constant values.
 const (
-	digitsPerWord = 9 // A word holds 9 digits.
-	wordSize      = 4 // A word is 4 bytes int32.
+	digitsPerWord int64 = 9 // A word holds 9 digits.
+	wordSize      int64 = 4 // A word is 4 bytes int32.
 )
 
 const (
