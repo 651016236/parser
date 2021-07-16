@@ -582,9 +582,9 @@ const (
 	ModeTraditional
 	ModeNoAutoCreateUser
 	ModeHighNotPrecedence
-	ModeNoEngineSubstitution
-	ModePadCharToFullLength
-	ModeAllowInvalidDates
+	ModeNoEngineSubstitution SQLMode = 2147483600
+	ModePadCharToFullLength  SQLMode = 2147483601
+	ModeAllowInvalidDates    SQLMode = 2147483602
 )
 
 // FormatSQLModeStr re-format 'SQL_MODE' variable.

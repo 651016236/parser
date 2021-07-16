@@ -14,8 +14,8 @@
 package mysql
 
 type lengthAndDecimal struct {
-	length  int64
-	decimal int64
+	length  int
+	decimal int
 }
 
 // defaultLengthAndDecimal provides default Flen and Decimal for fields
@@ -41,8 +41,8 @@ var defaultLengthAndDecimal = map[byte]lengthAndDecimal{
 	TypeTinyBlob:   {255, 0},
 	TypeBlob:       {65535, 0},
 	TypeMediumBlob: {16777215, 0},
-	TypeLongBlob:   {4294967295, 0},
-	TypeJSON:       {4294967295, 0},
+	TypeLongBlob:   {4294967294, 0},
+	TypeJSON:       {4294967294, 0},
 	TypeNull:       {0, 0},
 	TypeSet:        {-1, 0},
 	TypeEnum:       {-1, 0},
@@ -62,7 +62,7 @@ func IsIntegerType(tp byte) bool {
 // or column value is calculated from an expression.
 // For example: "select count(*) from t;", the column type is int64 and Flen in ResultField will be 21.
 // See https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html
-func GetDefaultFieldLengthAndDecimal(tp byte) (flen int64, decimal int64) {
+func GetDefaultFieldLengthAndDecimal(tp byte) (flen int, decimal int) {
 	val, ok := defaultLengthAndDecimal[tp]
 	if ok {
 		return val.length, val.decimal
@@ -84,7 +84,7 @@ var defaultLengthAndDecimalForCast = map[byte]lengthAndDecimal{
 
 // GetDefaultFieldLengthAndDecimalForCast returns the default display length (flen) and decimal length for casted column
 // when flen or decimal is not specified.
-func GetDefaultFieldLengthAndDecimalForCast(tp byte) (flen int64, decimal int64) {
+func GetDefaultFieldLengthAndDecimalForCast(tp byte) (flen int, decimal int) {
 	val, ok := defaultLengthAndDecimalForCast[tp]
 	if ok {
 		return val.length, val.decimal
