@@ -10068,7 +10068,7 @@ yynewstate:
 		{
 			x := types.NewFieldType(mysql.TypeDuration)
 			x.Flen, _ = mysql.GetDefaultFieldLengthAndDecimalForCast(mysql.TypeDuration)
-			x.Decimal = yyS[yypt-0].item.(int64)
+			x.Decimal = yyS[yypt-0].item.(int)
 			if x.Decimal > 0 {
 				x.Flen = x.Flen + 1 + x.Decimal
 			}
